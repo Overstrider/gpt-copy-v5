@@ -1,0 +1,12 @@
+{
+  "status": "approved",
+  "rules_path": ".codedungeon/project-rules.md",
+  "compact_path": ".codedungeon/project-rules.compact.md",
+  "source_digest": "02021315a917f177df4794ae5bc5f0ccc6b563c5e0ff5f35414b850880adf132",
+  "rules_digest": "c5cfd5995f917f1db1d2984fe4f7493ce68cf323438847f0f1989e595473dc8e",
+  "approved_at": "2026-04-28T18:12:54Z",
+  "approved_by": "codex-user-implement-plan",
+  "sources": [
+    "AGENTS.md"
+  ]
+}
