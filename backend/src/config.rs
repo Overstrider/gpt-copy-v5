@@ -25,6 +25,12 @@ impl Config {
         let bind_addr = format!("{host}:{port}")
             .parse::<SocketAddr>()
             .map_err(|source| ConfigError::InvalidBindAddress { source })?;
+        let public_bind_ack = env::var("ALLOW_UNAUTHENTICATED_PUBLIC_BIND")
+            .map(|value| matches!(value.as_str(), "1" | "true" | "TRUE" | "yes" | "YES"))
+            .unwrap_or(false);
+        if !bind_addr.ip().is_loopback() && !public_bind_ack {
+            return Err(ConfigError::UnsafePublicBind);
+        }
         let frontend_origin =
             env::var("FRONTEND_ORIGIN").unwrap_or_else(|_| "http://localhost:3000".to_owned());
         let openrouter_api_key = env::var("OPENROUTER_API_KEY")
@@ -61,4 +67,8 @@ pub enum ConfigError {
     InvalidFrontendOrigin {
         source: axum::http::header::InvalidHeaderValue,
     },
+    #[error(
+        "refusing non-loopback bind without ALLOW_UNAUTHENTICATED_PUBLIC_BIND=true because the API is single-user and unauthenticated"
+    )]
+    UnsafePublicBind,
 }

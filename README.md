@@ -42,6 +42,8 @@ The backend defaults to `http://127.0.0.1:3001` and provides:
 - `POST /api/conversations/{id}/messages`
 - `POST /api/conversations/{id}/stream`
 
+The API is intended for trusted local development. Startup refuses non-loopback binds unless `ALLOW_UNAUTHENTICATED_PUBLIC_BIND=true` is set explicitly.
+
 Run backend checks:
 
 ```powershell
@@ -91,5 +93,6 @@ Open `http://localhost:3000`.
 
 - `OPENROUTER_API_KEY` missing: backend chat endpoints return a structured JSON error for real model calls. Tests use mocks and do not need a key.
 - CORS errors: confirm `FRONTEND_ORIGIN=http://localhost:3000` matches the frontend dev server.
+- Public bind errors: keep `BACKEND_HOST=127.0.0.1` for local use, or add real authentication before acknowledging `ALLOW_UNAUTHENTICATED_PUBLIC_BIND=true`.
 - SQLite errors: confirm the `backend/` directory exists and `DATABASE_URL` points to a writable local SQLite file.
 - Frontend API errors: confirm `NEXT_PUBLIC_API_BASE_URL=http://localhost:3001` and the backend is running.

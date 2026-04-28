@@ -141,7 +141,8 @@ function handleSseFrame(frame: string, onChunk: (chunk: string) => void) {
       event = line.slice("event:".length).trim();
     }
     if (line.startsWith("data:")) {
-      data.push(line.slice("data:".length).trimStart());
+      const value = line.slice("data:".length);
+      data.push(value.startsWith(" ") ? value.slice(1) : value);
     }
   }
 

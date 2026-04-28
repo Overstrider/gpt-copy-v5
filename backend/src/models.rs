@@ -4,6 +4,8 @@ use uuid::Uuid;
 
 use crate::error::AppError;
 
+pub const MAX_USER_MESSAGE_CHARS: usize = 16_000;
+
 #[derive(Debug, Clone, Serialize, sqlx::FromRow)]
 pub struct Conversation {
     pub id: Uuid,
@@ -88,7 +90,7 @@ impl SendMessageRequest {
         if content.is_empty() {
             return Err(AppError::validation("content is required"));
         }
-        if content.chars().count() > 16_000 {
+        if content.chars().count() > MAX_USER_MESSAGE_CHARS {
             return Err(AppError::validation(
                 "content must be 16000 characters or fewer",
             ));

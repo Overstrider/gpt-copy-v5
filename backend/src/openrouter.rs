@@ -8,6 +8,7 @@ use serde::{Deserialize, Serialize};
 
 pub type ChatStream = Pin<Box<dyn Stream<Item = Result<String, OpenRouterError>> + Send>>;
 pub type DynChatClient = Arc<dyn ChatClient>;
+const MAX_OPENROUTER_OUTPUT_TOKENS: u16 = 1024;
 
 #[async_trait]
 pub trait ChatClient: Send + Sync {
@@ -67,6 +68,7 @@ impl ChatClient for OpenRouterClient {
             model,
             messages,
             stream: false,
+            max_tokens: MAX_OPENROUTER_OUTPUT_TOKENS,
         };
         let response = self
             .http
@@ -104,6 +106,7 @@ impl ChatClient for OpenRouterClient {
             model,
             messages,
             stream: true,
+            max_tokens: MAX_OPENROUTER_OUTPUT_TOKENS,
         };
         let response = self
             .http
@@ -172,6 +175,7 @@ struct OpenRouterChatRequest<'a> {
     model: &'a str,
     messages: Vec<OpenRouterMessage>,
     stream: bool,
+    max_tokens: u16,
 }
 
 #[derive(Debug, Deserialize)]

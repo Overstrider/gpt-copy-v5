@@ -43,7 +43,7 @@ describe("ChatApp", () => {
         return jsonResponse({ messages: [] });
       }
       if (url.endsWith(`/api/conversations/${conversation.id}/stream`) && method === "POST") {
-        return streamResponse(["Hello ", "from mock"]);
+        return streamResponse(["Hello", "  from mock"]);
       }
 
       return jsonResponse(
@@ -59,7 +59,10 @@ describe("ChatApp", () => {
     await userEvent.click(screen.getByRole("button", { name: "Send message" }));
 
     expect(await screen.findByText("Hello model")).toBeInTheDocument();
-    expect(await screen.findByText("Hello from mock")).toBeInTheDocument();
+    expect(
+      (await screen.findAllByText((_, element) => element?.textContent === "Hello  from mock"))
+        .length
+    ).toBeGreaterThan(0);
   });
 });
 
