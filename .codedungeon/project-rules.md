@@ -13,6 +13,14 @@ Generated: 2026-04-28
 - .codex/config.toml
 - ../example-model.md
 - ../v4/prompts/full-v4.txt
+- .env.example
+- README.md
+- backend/Cargo.toml
+- frontend/package.json
+- frontend/next.config.ts
+- frontend/playwright.config.ts
+- frontend/tailwind.config.ts
+- frontend/vitest.config.ts
 
 ## Architecture And Boundaries
 - The repository is a CodeDungeon Codex test repository under examples/v5.
@@ -49,6 +57,7 @@ Generated: 2026-04-28
 - MUST default the non-secret OpenRouter model setting to `nvidia/nemotron-3-super-120b-a12b:free`.
 - MUST proxy OpenRouter calls server-side only; frontend code must not expose provider secrets.
 - MUST mock or fake provider calls in tests instead of requiring live secrets.
+- MUST keep the local API loopback by default, or require an explicit unsafe acknowledgement before binding the unauthenticated API to a non-loopback address.
 
 ## Agent Operating Rules
 - MUST run `./.codex/bin/codedungeon.exe rules status --human` before planning, execution, review, or final reporting.

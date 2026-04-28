@@ -1,0 +1,11 @@
+$ npx playwright test
+
+[stdout]
+Running 1 test using 1 worker
+
+  ok 1 [chromium] › e2e\chat.spec.ts:10:5 › sends one message through the chat composer (763ms)
+
+  1 passed (7.2s)
+
+[stderr]
+

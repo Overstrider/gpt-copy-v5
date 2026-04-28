@@ -1,0 +1,6 @@
+{
+  "persona": "security",
+  "reviewed_files": 11,
+  "findings": [],
+  "no_findings_rationale": "Re-reviewed the local single-user app trust boundary and the prior security findings. The backend now defaults to loopback and refuses non-loopback binds unless ALLOW_UNAUTHENTICATED_PUBLIC_BIND=true is explicitly acknowledged, with README and .env.example documenting the trusted-local risk. OpenRouter requests now set max_tokens, replayed history is bounded by message count and total characters, and streamed/non-streamed assistant persistence is capped. I did not find a remaining concrete remote abuse path under the intended trusted local workflow."
+}

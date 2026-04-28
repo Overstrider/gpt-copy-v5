@@ -1,0 +1,11 @@
+$ ./.codex/bin/codedungeon rules status --human
+
+[stdout]
+
+
+[stderr]
+'.' is not recognized as an internal or external command,
+operable program or batch file.
+
+[error]
+exit status 1

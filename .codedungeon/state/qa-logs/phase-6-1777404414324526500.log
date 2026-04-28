@@ -1,11 +1,14 @@
+$ .\.codex\bin\codedungeon.exe rules status --human
+
+[stdout]
 {
+  "ok": true,
   "status": "approved",
   "rules_path": ".codedungeon/project-rules.md",
   "compact_path": ".codedungeon/project-rules.compact.md",
+  "state_path": ".codedungeon/project-rules.json",
   "source_digest": "1c7c67787f9aec7b3c20d69d5ea8bdf68e11dfcd977c667a10731b3d763fbd3f",
   "rules_digest": "3ae6ef49673724749fb1b0e05bccedc6da1cdeee8c0694d95384ec2b72b91b15",
-  "approved_at": "2026-04-28T19:19:51Z",
-  "approved_by": "codex-child-runner-refresh",
   "sources": [
     ".env.example",
     "AGENTS.md",
@@ -18,3 +21,6 @@
     "frontend/vitest.config.ts"
   ]
 }
+
+[stderr]
+

@@ -1,0 +1,17 @@
+$ npm run test
+
+[stdout]
+> gpt-copy-v5-frontend@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.5 E:/minima/codedungeon/examples/v5/frontend
+
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  16:26:00
+   Duration  1.57s (transform 56ms, setup 74ms, import 390ms, tests 445ms, environment 514ms)
+
+[stderr]
+

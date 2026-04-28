@@ -1,0 +1,8 @@
+$ npm run lint
+
+[stdout]
+> gpt-copy-v5-frontend@0.1.0 lint
+> eslint .
+
+[stderr]
+

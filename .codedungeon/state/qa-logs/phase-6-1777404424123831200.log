@@ -1,0 +1,9 @@
+$ .\.codex\bin\codedungeon.exe rules lint --human
+
+[stdout]
+{
+  "ok": true
+}
+
+[stderr]
+
