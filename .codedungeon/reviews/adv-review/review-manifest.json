@@ -1,0 +1,40 @@
+{
+  "PROJECT_RULES_STATUS": "approved",
+  "PROJECT_RULES_DIGEST": "3ae6ef49673724749fb1b0e05bccedc6da1cdeee8c0694d95384ec2b72b91b15",
+  "PROJECT_RULES_READ": "yes",
+  "cycle": 1,
+  "pr_number": 1,
+  "pr_url": "https://github.com/Overstrider/gpt-copy-v5/pull/1",
+  "base_sha": "5de240f7cd66b3b2190e83ef0c76a2a6e91e871c",
+  "head_sha": "3284fe4f51b55f73e95a91aa043a294dfc4c0764",
+  "created_at": "2026-04-28T18:55:55.9153361Z",
+  "timestamp": "2026-04-28T18:55:55.9153361Z",
+  "personas_expected": [
+    "spec",
+    "security",
+    "saboteur",
+    "newhire"
+  ],
+  "personas": [
+    {
+      "name": "spec",
+      "agent_type": "cd_review_spec",
+      "output": "findings-spec.json"
+    },
+    {
+      "name": "security",
+      "agent_type": "cd_review_security",
+      "output": "findings-security.json"
+    },
+    {
+      "name": "saboteur",
+      "agent_type": "cd_review_saboteur",
+      "output": "findings-saboteur.json"
+    },
+    {
+      "name": "newhire",
+      "agent_type": "cd_review_newhire",
+      "output": "findings-newhire.json"
+    }
+  ]
+}
